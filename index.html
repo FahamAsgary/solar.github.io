@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Irrigation: Sistan & Baluchestan's Sustainable Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F8FF; /* AliceBlue - light neutral */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Default max-width */
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Base height */
+            max-height: 400px; /* Max height */
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .chart-container {
+                height: 350px;
+            }
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            padding: 1.5rem; /* p-6 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .text-primary { color: #0077B6; } /* Main Blue */
+        .text-secondary { color: #00B4D8; } /* Lighter Blue */
+        .bg-primary { background-color: #0077B6; }
+        .bg-secondary { background-color: #00B4D8; }
+        .border-primary { border-color: #0077B6; }
+
+        .section-title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            color: #0077B6; /* text-primary */
+            margin-bottom: 1rem; /* mb-4 */
+            text-align: center;
+        }
+        .section-intro {
+            font-size: 1.125rem; /* text-lg */
+            color: #333333; /* Dark Gray for text */
+            margin-bottom: 2rem; /* mb-8 */
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .chart-title {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: #333333;
+            margin-bottom: 0.5rem; /* mb-2 */
+            text-align: center;
+        }
+        .chart-explanation {
+            font-size: 0.875rem; /* text-sm */
+            color: #555555;
+            margin-top: 0.75rem; /* mt-3 */
+            text-align: center;
+        }
+        .big-number {
+            font-size: 3rem; /* text-5xl or 6xl */
+            font-weight: 800; /* font-extrabold */
+            color: #0077B6; /* text-primary */
+            line-height: 1;
+        }
+        .big-number-label {
+            font-size: 1rem; /* text-base */
+            color: #333333;
+            margin-top: 0.5rem; /* mt-2 */
+        }
+        .flowchart-item {
+            border: 2px solid #00B4D8; /* border-secondary */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: #E0F7FA; /* Very light cyan, Accent2 like */
+            text-align: center;
+            color: #333333;
+            flex-grow: 1;
+        }
+        .flowchart-arrow {
+            font-size: 2rem;
+            color: #0077B6; /* text-primary */
+            margin: 0 0.5rem;
+            align-self: center;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .sticky-nav a {
+            color: #0077B6;
+            font-weight: 500;
+        }
+        .sticky-nav a:hover {
+            color: #00507A;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="sticky-nav hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex justify-center space-x-6">
+                <li><a href="#challenge">The Challenge</a></li>
+                <li><a href="#current-state">Current State</a></li>
+                <li><a href="#solar-potential">Solar Potential</a></li>
+                <li><a href="#economics">Economics</a></li>
+                <li><a href="#barriers">Barriers</a></li>
+                <li><a href="#opportunities">Opportunities</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="bg-primary text-white py-12 sm:py-16 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4">Solar Irrigation: Powering Iran's Wheat Heartland</h1>
+            <p class="text-xl sm:text-2xl opacity-90">An Economic & Sustainability Focus on Sistan & Baluchestan Province</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 sm:p-8">
+
+        <section id="challenge" class="py-8 sm:py-12">
+            <h2 class="section-title">The Dual Crisis: Water Scarcity & Energy Demand</h2>
+            <p class="section-intro">
+                Sistan and Baluchestan province faces a severe water crisis, exacerbated by climate change and resource mismanagement. This directly impacts its vital agricultural sector, particularly wheat cultivation, which is crucial for regional food security.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="stat-card">
+                    <div class="big-number">67%</div>
+                    <div class="big-number-label">Decrease in Precipitation (2023 vs. Avg.)</div>
+                    <p class="chart-explanation mt-2">A drastic reduction in rainfall has intensified drought conditions across the province.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="big-number">99.6%</div>
+                    <div class="big-number-label">Province Area Affected by Drought</div>
+                    <p class="chart-explanation mt-2">With 75.5% experiencing severe drought, water availability is critically low.</p>
+                </div>
+                <div class="stat-card">
+                     <div class="chart-title">Virtual Water Content of Wheat</div>
+                    <div class="chart-container h-64 md:h-auto">
+                        <canvas id="virtualWaterChart"></canvas>
+                    </div>
+                    <p class="chart-explanation">Sistan & Baluchestan shows a high virtual water content for wheat, indicating substantial water use per ton produced.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="current-state" class="py-8 sm:py-12 bg-gray-100 rounded-lg">
+            <h2 class="section-title">Wheat Farming Today: A Thirst for Efficiency</h2>
+            <p class="section-intro">
+                Current wheat cultivation in Sistan and Baluchestan relies heavily on irrigation, but existing methods often suffer from low water and energy efficiency, coupled with a dependence on subsidized, conventional energy sources.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                <div class="stat-card">
+                    <div class="chart-title">On-Farm Water Use Efficiency (Wheat)</div>
+                    <div class="chart-container">
+                        <canvas id="waterUseEfficiencyChart"></canvas>
+                    </div>
+                    <p class="chart-explanation">Only about half the water applied for wheat irrigation contributes to crop production, representing significant loss.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="chart-title">Energy Sources & GHG Emissions in Wheat Irrigation</div>
+                    <div class="chart-container">
+                        <canvas id="energySourcesChart"></canvas>
+                    </div>
+                    <p class="chart-explanation">Conventional energy sources like diesel and grid electricity dominate, leading to high GHG emissions. Grid electricity is a major contributor.</p>
+                </div>
+                 <div class="stat-card md:col-span-2 flex flex-col md:flex-row items-center justify-around">
+                    <div class="text-center mb-4 md:mb-0 md:mr-4">
+                        <div class="big-number">0.77</div>
+                        <div class="big-number-label">National Energy Efficiency Ratio (Irrigated Wheat)</div>
+                        <p class="chart-explanation mt-2">Indicates that energy input often exceeds the energy output in harvested wheat.</p>
+                    </div>
+                    <div class="text-center">
+                         <div class="big-number">~167 L/ha</div>
+                        <div class="big-number-label">Est. Diesel Consumption for Wheat (Sistan, 2009 study)</div>
+                        <p class="chart-explanation mt-2">Even with subsidies, fuel costs can be substantial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solar-potential" class="py-8 sm:py-12">
+            <h2 class="section-title">The Solar Solution: Harnessing Abundant Sunshine</h2>
+            <p class="section-intro">
+                Sistan and Baluchestan is blessed with exceptional solar irradiance, presenting a vast, untapped potential to power irrigation sustainably and reduce reliance on conventional energy.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="stat-card">
+                    <div class="text-6xl mb-2">☀️</div>
+                    <div class="big-number">>300</div>
+                    <div class="big-number-label">Sunny Days Annually</div>
+                    <p class="chart-explanation mt-2">Consistent sunshine makes solar PV a reliable energy source for the region.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="big-number">~6</div>
+                    <div class="big-number-label">kWh/m²/day Average Sunlight</div>
+                    <p class="chart-explanation mt-2">This high solar radiation level is ideal for efficient photovoltaic generation.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="text-6xl mb-2">💡</div>
+                    <div class="text-2xl font-bold text-primary">Excellent Suitability</div>
+                    <div class="big-number-label">For Solar PV Development</div>
+                    <p class="chart-explanation mt-2">Studies identify the province as prime for solar energy exploitation, with ~21% of its area rated "excellent".</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="economics" class="py-8 sm:py-12 bg-gray-100 rounded-lg">
+            <h2 class="section-title">Solar Economics: Weighing Costs & Benefits</h2>
+            <p class="section-intro">
+                While Solar Water Pumping Systems (SWPS) have higher upfront costs, their lifecycle economics are often favorable compared to diesel, especially when considering negligible fuel costs and lower maintenance. The comparison with grid electricity is nuanced by subsidies and reliability issues.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="stat-card">
+                    <div class="chart-title">Comparative Initial Capital Costs</div>
+                     <div class="chart-container">
+                        <canvas id="capitalCostsChart"></canvas>
+                    </div>
+                    <p class="chart-explanation">SWPS can be 7-9 times more expensive upfront than conventional diesel pumps.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="chart-title">Comparative Operational & Maintenance Costs</div>
+                    <div class="chart-container">
+                        <canvas id="omCostsChart"></canvas>
+                    </div>
+                    <p class="chart-explanation">SWPS boast significantly lower O&M costs, primarily due to zero fuel expenses (up to 8.7 times lower than conventional).</p>
+                </div>
+                <div class="stat-card md:col-span-2">
+                    <div class="chart-title">Payback Period: Solar vs. Diesel (Illustrative)</div>
+                    <div class="chart-container">
+                        <canvas id="paybackPeriodChart"></canvas>
+                    </div>
+                    <p class="chart-explanation">Payback for solar can be 6-14 years versus diesel. Removing diesel subsidies drastically shortens this period.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="barriers" class="py-8 sm:py-12">
+            <h2 class="section-title">Overcoming Hurdles: Barriers to Solar Adoption</h2>
+            <p class="section-intro">
+                Several interconnected challenges hinder the widespread adoption of solar irrigation systems, despite their potential. Addressing these is key to unlocking solar benefits for farmers in Sistan and Baluchestan.
+            </p>
+            <div class="space-y-6">
+                <div class="stat-card">
+                    <h3 class="text-xl font-semibold text-primary mb-3">Key Adoption Barriers</h3>
+                    <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 items-stretch">
+                        <div class="flowchart-item">
+                            <div class="text-4xl mb-2">💰</div>
+                            <h4 class="font-bold">Financial</h4>
+                            <p class="text-sm">High upfront costs, limited access to affordable credit, macroeconomic instability.</p>
+                        </div>
+                        <div class="flowchart-arrow hidden md:block">➔</div>
+                        <div class="flowchart-item">
+                            <div class="text-4xl mb-2">🛠️</div>
+                            <h4 class="font-bold">Technical</h4>
+                            <p class="text-sm">Lack of local expertise for sizing & maintenance, component quality concerns, spare parts availability.</p>
+                        </div>
+                        <div class="flowchart-arrow hidden md:block">➔</div>
+                        <div class="flowchart-item">
+                           <div class="text-4xl mb-2">ℹ️</div>
+                            <h4 class="font-bold">Informational</h4>
+                            <p class="text-sm">Insufficient farmer awareness of benefits and operation, weak extension services.</p>
+                        </div>
+                    </div>
+                     <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 items-stretch mt-4">
+                        <div class="flowchart-item">
+                            <div class="text-4xl mb-2">💧</div>
+                            <h4 class="font-bold">Water Governance</h4>
+                            <p class="text-sm">Risk of groundwater overexploitation without strong regulation and monitoring.</p>
+                        </div>
+                        <div class="flowchart-arrow hidden md:block">➔</div>
+                        <div class="flowchart-item">
+                           <div class="text-4xl mb-2">📜</div>
+                            <h4 class="font-bold">Policy & Institutional</h4>
+                            <p class="text-sm">Energy subsidy conflicts, bureaucratic hurdles, fragmented support programs.</p>
+                        </div>
+                    </div>
+                     <p class="chart-explanation mt-4">These barriers often interact, creating complex challenges for farmers and policymakers.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="opportunities" class="py-8 sm:py-12 bg-gray-100 rounded-lg">
+            <h2 class="section-title">Unlocking Opportunities: The Path Forward</h2>
+            <p class="section-intro">
+                Despite challenges, solar irrigation offers transformative opportunities for economic development, environmental protection, and enhanced livelihoods in Sistan and Baluchestan.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="stat-card">
+                    <div class="text-6xl mb-2">📈</div>
+                    <div class="text-xl font-semibold text-primary">Improved Farm Income</div>
+                    <p class="chart-explanation mt-2">Reduced energy costs and potential yield increases (reports of 40-50% in similar projects) boost profitability.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="text-6xl mb-2">💧🌱</div>
+                    <div class="text-xl font-semibold text-primary">Water Savings</div>
+                    <p class="chart-explanation mt-2">When paired with drip irrigation (up to 90% efficiency), water use can be cut by >20% vs. sprinklers, and much more vs. flood.</p>
+                </div>
+                <div class="stat-card">
+                     <div class="text-6xl mb-2">🌍</div>
+                    <div class="text-xl font-semibold text-primary">GHG Emission Reduction</div>
+                    <p class="chart-explanation mt-2">Significant decrease in carbon footprint by replacing diesel and fossil-fuel based grid electricity (e.g., ~200 kg CO2-eq/ha/year savings shown in studies).</p>
+                </div>
+                 <div class="stat-card md:col-span-3">
+                    <div class="text-center">
+                        <div class="text-6xl mb-2">🏘️</div>
+                        <div class="text-xl font-semibold text-primary">Rural Development</div>
+                        <p class="chart-explanation mt-2">Contributes to energy access, new local jobs in installation/maintenance, and overall community resilience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recommendations" class="py-8 sm:py-12">
+            <h2 class="section-title">Making Solar Irrigation a Reality: Key Recommendations</h2>
+            <p class="section-intro">
+                A multi-faceted strategy is crucial for sustainable adoption of solar irrigation. This involves policy reforms, financial support, capacity building, and robust water governance.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="stat-card">
+                    <h3 class="text-lg font-semibold text-primary mb-2">1. Reform Energy Subsidies</h3>
+                    <p class="text-sm text-gray-700">Gradually phase out diesel/electricity subsidies for pumping to reflect true costs and make renewables more competitive. Reallocate savings to support SWPS.</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-lg font-semibold text-primary mb-2">2. Enhance Financial Access</h3>
+                    <p class="text-sm text-gray-700">Develop tailored, accessible loans (low-interest, lease-to-own) for smallholders for integrated solar irrigation packages. Provide robust capital subsidies.</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-lg font-semibold text-primary mb-2">3. Build Technical Capacity</h3>
+                    <p class="text-sm text-gray-700">Invest in training for farmers (O&M) and local technicians (installation, repair). Ensure quality standards and spare parts availability.</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-lg font-semibold text-primary mb-2">4. Strengthen Water Governance</h3>
+                    <p class="text-sm text-gray-700">Implement strict groundwater abstraction regulations, metering, and licensing. Mandate water-efficient irrigation with SWPS.</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-lg font-semibold text-primary mb-2">5. Improve Farmer Awareness</h3>
+                    <p class="text-sm text-gray-700">Launch targeted information campaigns and demonstration sites. Strengthen extension services with SWPS expertise.</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-lg font-semibold text-primary mb-2">6. Promote Integrated Solutions</h3>
+                    <p class="text-sm text-gray-700">Encourage a systems approach (SWPS + efficient irrigation + good agronomy). Adapt programs to local needs. Conduct more region-specific research.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center py-8">
+        <p>&copy; 2024 Economic Assessment of Solar Irrigation. Data synthesized from research on Sistan & Baluchestan, Iran.</p>
+        <p class="text-xs mt-2">Infographic generated based on the provided research report. For detailed analysis, refer to the source document.</p>
+    </footer>
+
+    <script>
+        const primaryColor = '#0077B6';
+        const secondaryColor = '#00B4D8';
+        const accent1Color = '#90E0EF';
+        const accent2Color = '#CAF0F8';
+        const textDarkColor = '#333333';
+        const textLightColor = '#FFFFFF';
+
+        function processLabel(label) {
+            const maxLength = 16;
+            if (label.length > maxLength) {
+                const words = label.split(' ');
+                let currentLine = '';
+                const lines = [];
+                for (const word of words) {
+                    if ((currentLine + word).length > maxLength && currentLine.length > 0) {
+                        lines.push(currentLine.trim());
+                        currentLine = word + ' ';
+                    } else {
+                        currentLine += word + ' ';
+                    }
+                }
+                lines.push(currentLine.trim());
+                return lines;
+            }
+            return label;
+        }
+        
+        const tooltipTitleCallback = function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: { color: textDarkColor }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { color: textDarkColor },
+                    grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                },
+                x: {
+                    ticks: { color: textDarkColor, callback: function(value, index, values) {
+                            const label = this.getLabelForValue(value);
+                            return processLabel(label);
+                        }  
+                    },
+                    grid: { display: false }
+                }
+            }
+        };
+        
+        const defaultPieChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { color: textDarkColor }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback,
+                        label: function(context) {
+                            let label = context.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed !== null) {
+                                label += context.parsed + '%';
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+
+        new Chart(document.getElementById('virtualWaterChart'), {
+            type: 'bar',
+            data: {
+                labels: [processLabel('Sistan & Baluchestan Avg.'), processLabel('Range High End')],
+                datasets: [{
+                    label: 'Virtual Water Content (m³/ton)',
+                    data: [1415.8, 3523],
+                    backgroundColor: [secondaryColor, accent1Color],
+                    borderColor: [primaryColor, primaryColor],
+                    borderWidth: 1
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        new Chart(document.getElementById('waterUseEfficiencyChart'), {
+            type: 'doughnut',
+            data: {
+                labels: [processLabel('Efficient Use'), processLabel('Water Loss')],
+                datasets: [{
+                    label: 'Water Use Efficiency',
+                    data: [50.92, 49.08],
+                    backgroundColor: [primaryColor, accent1Color],
+                    hoverOffset: 4
+                }]
+            },
+            options: defaultPieChartOptions
+        });
+
+        new Chart(document.getElementById('energySourcesChart'), {
+            type: 'pie',
+            data: {
+                labels: [processLabel('Grid Electricity GHG Contr.'), processLabel('Diesel Fuel GHG Contr.'), processLabel('Other Sources GHG Contr.')],
+                datasets: [{
+                    label: 'GHG Emission Contribution by Energy Source for Wheat Irrigation (National Avg.)',
+                    data: [52.4, 29.4, 18.2], 
+                    backgroundColor: [primaryColor, secondaryColor, accent1Color],
+                    hoverOffset: 4
+                }]
+            },
+             options: defaultPieChartOptions
+        });
+        
+        new Chart(document.getElementById('capitalCostsChart'), {
+            type: 'bar',
+            data: {
+                labels: [processLabel('Solar (SWPS)'), processLabel('Diesel Pump'), processLabel('Grid Electric Pump')],
+                datasets: [{
+                    label: 'Relative Initial Capital Cost (Illustrative Index, Diesel=1)',
+                    data: [8, 1, 1.5], // Illustrative, SWPS 7-9x, Grid slightly more than diesel
+                    backgroundColor: [primaryColor, secondaryColor, accent1Color],
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        new Chart(document.getElementById('omCostsChart'), {
+            type: 'bar',
+            data: {
+                labels: [processLabel('Solar (SWPS)'), processLabel('Diesel Pump'), processLabel('Grid Electric Pump')],
+                datasets: [{
+                    label: 'Relative Annual O&M Cost (Illustrative Index, Solar=1)',
+                    data: [1, 8.7, 3], // Solar very low, Diesel high, Grid moderate
+                    backgroundColor: [primaryColor, secondaryColor, accent1Color],
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        new Chart(document.getElementById('paybackPeriodChart'), {
+            type: 'bar',
+            data: {
+                labels: [processLabel('Solar vs Diesel (Subsidized)'), processLabel('Solar vs Diesel (Unsubsidized)')],
+                datasets: [{
+                    label: 'Estimated Payback Period (Years)',
+                    data: [14, 6], 
+                    backgroundColor: [secondaryColor, primaryColor],
+                }]
+            },
+            options: { ...defaultChartOptions, indexAxis: 'y' }
+        });
+
+    </script>
+</body>
+</html>
